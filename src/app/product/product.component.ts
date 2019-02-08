@@ -13,6 +13,12 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.api.getProducts().subscribe(res => {
+      console.log(res);
+      this.products = res;
+    }, err => {
+      console.log(err);
+    });
   }
 
 }
