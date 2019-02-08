@@ -5,16 +5,20 @@
     [rowspan]="4" [routerLink]="['/product-details/', product._id]">
     <mat-card class="example-card">
       <mat-card-header>
-        <mat-card-title>{{product.name}}</mat-card-title>
+        <mat-card-title><span [matBadge]="product.stock" matBadgeOverlap="false" matBadgeColor="accent">{{product.name | titlecase}}</span></mat-card-title>
         <mat-card-subtitle>{{product.grocer}}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-lg-image src="assets/img/banane_57300.jpg" alt="Photo of a Shiba Inu">
+      <img mat-card-lg-image *ngIf="product.name == 'banane'" class="img-full" src="assets/img/banane_57300.jpg" alt="Photo of a banana">
+      <img mat-card-lg-image *ngIf="product.name == 'poire'" class="img-full" src="assets/img/poire.jpg" alt="Photo of a poire">
+      <img mat-card-lg-image *ngIf="product.name == 'pomme'" class="img-full" src="assets/img/pomme_rouge.jpg" alt="Photo of a pomme">
+      <img mat-card-lg-image *ngIf="product.name == 'orange'" class="img-full" src="assets/img/orange_1.jpg" alt="Photo of a orange">
+      <img mat-card-lg-image *ngIf="product.name == 'fraise'" class="img-full" src="assets/img/fraise-fond-blanc.jpg" alt="Photo of a fraise">
       <mat-card-content>
         <p>
           {{product.description}}
         </p>
       </mat-card-content>
-      <mat-card-actions>
+      <mat-card-actions align="end">
         <button mat-button>ACHETER</button>
       </mat-card-actions>
     </mat-card>

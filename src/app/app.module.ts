@@ -13,7 +13,8 @@ import {
   MatIconModule,
   MatMenuModule,
   MatCardModule,
-  MatGridListModule
+  MatGridListModule,
+  MatBadgeModule
 } from "@angular/material";
 
 @NgModule({
@@ -32,7 +33,8 @@ import {
     MatIconModule,
     MatMenuModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
