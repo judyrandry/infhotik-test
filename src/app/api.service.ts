@@ -2,7 +2,8 @@ import {Injectable} from '@angular/core';
 import {HttpHeaders} from "@angular/common/http";
 import {HttpClient} from "@angular/common/http";
 import {HttpErrorResponse} from "@angular/common/http";
-import {throwError} from "rxjs";
+import {throwError, Observable} from "rxjs";
+import {map, catchError} from "rxjs/internal/operators";
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -35,5 +36,11 @@ export class ApiService {
   private extractData(res: Response) {
     let body = res;
     return body || { };
+  }
+
+  getProducts(): Observable<any> {
+    return this.http.get(apiUrl, httpOptions).pipe(
+      map(this.extractData),
+      catchError(this.handleError));
   }
 }
