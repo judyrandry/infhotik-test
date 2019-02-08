@@ -13,6 +13,10 @@ const routes: Routes = [
     path: 'Product-details/:id',
     component: ProductDetailComponent,
     data: { title: 'Product Details' }
+  },
+  { path: '',
+    redirectTo: '/products',
+    pathMatch: 'full'
   }
 ];
 
