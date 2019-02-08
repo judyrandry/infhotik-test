@@ -7,7 +7,14 @@ import {ProductComponent} from './product/product.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {
+  MatToolbarModule,
+  MatIconModule,
+  MatMenuModule,
+  MatCardModule,
+  MatGridListModule
+} from "@angular/material";
 
 @NgModule({
   declarations: [
@@ -20,7 +27,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatMenuModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
