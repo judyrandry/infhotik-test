@@ -11,6 +11,11 @@ var apiRouter = require('./routes/product');
 
 var app = express();
 
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/infhotik-test', { promiseLibrary: require('bluebird') })
+  .then(() =>  console.log('MongoDB connection successful!'))
+.catch((err) => console.error(err));
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
