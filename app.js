@@ -12,7 +12,7 @@ var apiRouter = require('./routes/product');
 var app = express();
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/infhotik-test', { promiseLibrary: require('bluebird') })
+mongoose.connect('mongodb://localhost/infhotik-test-db', { promiseLibrary: require('bluebird') })
   .then(() =>  console.log('MongoDB connection successful!'))
 .catch((err) => console.error(err));
 
