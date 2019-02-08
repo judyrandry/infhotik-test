@@ -51,4 +51,12 @@ export class ApiService {
       catchError(this.handleError));
   }
 
+  updateProduct(id, data): Observable<any> {
+    const url = `${apiUrl}/${id}`;
+    return this.http.put(url, data, httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
+  }
+
 }
