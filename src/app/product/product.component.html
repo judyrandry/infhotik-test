@@ -1,3 +1,13 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Magasin d'épicerie</span>
+    <span class="example-spacer"></span>
+    <!--<mat-icon class="example-icon">verified_user</mat-icon>-->
+    <button [routerLink]="['/stock']">
+      Stock d'épicerie
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
 <mat-grid-list cols="4" rowHeight="100px">
   <mat-grid-tile
     *ngFor="let product of products"

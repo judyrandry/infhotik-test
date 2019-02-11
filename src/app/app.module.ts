@@ -16,12 +16,14 @@ import {
   MatGridListModule,
   MatBadgeModule
 } from "@angular/material";
+import { StockComponent } from './stock/stock.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    StockComponent
   ],
   imports: [
     BrowserModule,
