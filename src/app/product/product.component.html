@@ -12,7 +12,7 @@
   <mat-grid-tile
     *ngFor="let product of products"
     [colspan]="1"
-    [rowspan]="4" [routerLink]="['/product-details/', product._id]">
+    [rowspan]="4">
     <mat-card class="example-card">
       <mat-card-header>
         <mat-card-title><span [matBadge]="product.stock" matBadgeOverlap="false" matBadgeColor="accent">{{product.name | titlecase}}</span></mat-card-title>
@@ -29,7 +29,7 @@
         </p>
       </mat-card-content>
       <mat-card-actions align="end">
-        <button mat-button>ACHETER</button>
+        <button mat-button (click)="openDialog(product._id)">ACHETER</button>
       </mat-card-actions>
     </mat-card>
   </mat-grid-tile>

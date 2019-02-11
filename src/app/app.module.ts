@@ -1,9 +1,9 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {ProductComponent} from './product/product.component';
+import {ProductComponent, PurchaseDialogExample} from './product/product.component';
 import {ProductDetailComponent} from './product-detail/product-detail.component';
 import {FormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
@@ -15,16 +15,18 @@ import {
   MatCardModule,
   MatGridListModule,
   MatBadgeModule,
-  MatListModule
+  MatListModule,
+  MatDialogModule
 } from "@angular/material";
-import { StockComponent } from './stock/stock.component';
+import {StockComponent} from './stock/stock.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     ProductDetailComponent,
-    StockComponent
+    StockComponent,
+    PurchaseDialogExample
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,14 @@ import { StockComponent } from './stock/stock.component';
     MatCardModule,
     MatGridListModule,
     MatBadgeModule,
-    MatListModule
+    MatListModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    PurchaseDialogExample
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   providers: [],
   bootstrap: [AppComponent]
