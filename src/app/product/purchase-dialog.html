@@ -6,6 +6,6 @@
   </mat-form-field>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">Annuler</button>
+  <button mat-button (click)="onNoClick()" style="margin-right: 5px">Annuler</button>
   <button mat-button [disabled]="data.count < 1" [mat-dialog-close]="data.count" cdkFocusInitial>Accepter</button>
 </div>
