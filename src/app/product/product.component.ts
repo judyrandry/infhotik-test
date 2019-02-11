@@ -34,6 +34,10 @@ export class ProductComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getAllProducts();
+  }
+
+  getAllProducts(): void {
     this.api.getProducts().subscribe(res => {
       console.log(res);
       this.products = res;
@@ -42,15 +46,23 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  openDialog(id): void {
+  openDialog(product): void {
     const dialogRef = this.dialog.open(PurchaseDialogExample, {
       width: '350px',
       data: {count: 0}
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed! ', result, id);
+      console.log('The dialog was closed! ', result, product);
       if(result) {
+        // delete product._id;
+        product.stock = product.stock >= result ? product.stock - result : 0;
+        this.api.updateProduct(product._id, product).subscribe(res => {
+          console.log(res);
+          this.getAllProducts();
+        }, err => {
+          console.log(err);
+        });
         this.count = result;
       }
     });
