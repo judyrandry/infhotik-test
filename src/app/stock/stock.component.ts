@@ -12,9 +12,22 @@ export class StockComponent implements OnInit {
   constructor(private api: ApiService) { }
 
   ngOnInit() {
+    this.getAllProducts();
+  }
+
+  getAllProducts(): void {
     this.api.getProducts().subscribe(res => {
       console.log(res);
       this.products = res;
+    }, err => {
+      console.log(err);
+    });
+  }
+
+  updateStock(product) {
+    this.api.updateProduct(product._id, product).subscribe(res => {
+      console.log(res);
+      this.getAllProducts();
     }, err => {
       console.log(err);
     });
