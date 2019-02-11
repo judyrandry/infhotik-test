@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Achats d'article</h1>
+<div mat-dialog-content>
+  <p>Vous voulez acheter combien de Kg?</p>
+  <mat-form-field>
+    <input matInput name="count" id="count" [(ngModel)]="data.count">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()" style="margin-right: 5px">Annuler</button>
+  <button mat-button [disabled]="data.count < 1" [mat-dialog-close]="data.count" cdkFocusInitial>Accepter</button>
+</div>

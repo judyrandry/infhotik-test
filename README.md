@@ -4,7 +4,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:3000/` view the front. And Navigate to `http://localhost:3000/api/`
+
+## Initialize data, run:
+ `curl -i -X POST -H "Content-Type: application/json" -d '{ "name":"banane","grocer": "Didin J.","description":"La banane est le fruit ou baie du bananier", "stock": 10 }' localhost:3000/api`
+ 
+ `curl -i -X POST -H "Content-Type: application/json" -d '{ "name":"pomme","grocer": "Didin J.","description":"La pomme est un fruit comestible a pepins", "stock": 15 }' localhost:3000/api`
+ 
+ `curl -i -X POST -H "Content-Type: application/json" -d '{ "name":"fraise","grocer": "Didin J.","description":"Le fraise est un fruit comestible � p�pins", "stock": 15 }' localhost:3000/api`
+ 
+ `curl -i -X POST -H "Content-Type: application/json" -d '{ "name":"poire","grocer": "Didin J.","description":"Le poire est un fruit assez dure", "stock": 65 }' localhost:3000/api`
+ 
+ `curl -i -X POST -H "Content-Type: application/json" -d '{ "name":"orange","grocer": "Didin J.","description":"L orange est un fruit riche en vitamine C", "stock": 65 }' localhost:3000/api`
 
 ## Code scaffolding
 

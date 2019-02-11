@@ -1,0 +1,36 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Magasin d'épicerie</span>
+    <span class="example-spacer"></span>
+    <!--<mat-icon class="example-icon">verified_user</mat-icon>-->
+    <button [routerLink]="['/stock']">
+      Stock d'épicerie
+    </button>
+  </mat-toolbar-row>
+</mat-toolbar>
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
+    *ngFor="let product of products"
+    [colspan]="1"
+    [rowspan]="4">
+    <mat-card class="example-card">
+      <mat-card-header>
+        <mat-card-title><span [matBadge]="product.stock" matBadgeOverlap="false" matBadgeColor="accent">{{product.name | titlecase}}</span></mat-card-title>
+        <mat-card-subtitle>{{product.grocer}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-lg-image *ngIf="product.name == 'banane'" class="img-full" src="assets/img/banane_57300.jpg" alt="Photo of a banana">
+      <img mat-card-lg-image *ngIf="product.name == 'poire'" class="img-full" src="assets/img/poire.jpg" alt="Photo of a poire">
+      <img mat-card-lg-image *ngIf="product.name == 'pomme'" class="img-full" src="assets/img/pomme_rouge.jpg" alt="Photo of a pomme">
+      <img mat-card-lg-image *ngIf="product.name == 'orange'" class="img-full" src="assets/img/orange_1.jpg" alt="Photo of a orange">
+      <img mat-card-lg-image *ngIf="product.name == 'fraise'" class="img-full" src="assets/img/fraise-fond-blanc.jpg" alt="Photo of a fraise">
+      <mat-card-content>
+        <p>
+          {{product.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions align="end">
+        <button mat-button [disabled]="product.stock < 1" (click)="openDialog(product)">ACHETER</button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
