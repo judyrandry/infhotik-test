@@ -14,7 +14,8 @@ import {
   MatMenuModule,
   MatCardModule,
   MatGridListModule,
-  MatBadgeModule
+  MatBadgeModule,
+  MatListModule
 } from "@angular/material";
 import { StockComponent } from './stock/stock.component';
 
@@ -36,7 +37,8 @@ import { StockComponent } from './stock/stock.component';
     MatMenuModule,
     MatCardModule,
     MatGridListModule,
-    MatBadgeModule
+    MatBadgeModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

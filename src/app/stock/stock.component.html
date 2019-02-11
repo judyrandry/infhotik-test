@@ -8,6 +8,14 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<p>
-  stock works!
-</p>
+<mat-list>
+  <h3 mat-subheader>Stock par article</h3>
+  <mat-divider></mat-divider>
+  <mat-list-item *ngFor="let product of products">
+    <mat-icon mat-list-icon>send</mat-icon>
+    <h4 mat-line>{{product.name}}</h4>
+    <p mat-line> {{product.grocer}} </p>
+    <span class="example-spacer"></span>
+    <input matInput placeholder="Stock" [(ngModel)]="product.stock">
+  </mat-list-item>
+</mat-list>
