@@ -17,7 +17,6 @@ export class StockComponent implements OnInit {
 
   getAllProducts(): void {
     this.api.getProducts().subscribe(res => {
-      console.log(res);
       this.products = res;
     }, err => {
       console.log(err);
@@ -26,7 +25,6 @@ export class StockComponent implements OnInit {
 
   updateStock(product) {
     this.api.updateProduct(product._id, product).subscribe(res => {
-      console.log(res);
       this.getAllProducts();
     }, err => {
       console.log(err);
