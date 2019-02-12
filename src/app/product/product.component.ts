@@ -29,17 +29,18 @@ export class PurchaseDialogExample {
 export class ProductComponent implements OnInit {
   products: any;
   count: number = 0;
+  breakpoint: number;
 
   constructor(private api: ApiService, public dialog: MatDialog) {
   }
 
   ngOnInit() {
+    this.breakpoint = (window.innerWidth <= 400) ? 1 : 4;
     this.getAllProducts();
   }
 
   getAllProducts(): void {
     this.api.getProducts().subscribe(res => {
-      console.log(res);
       this.products = res;
     }, err => {
       console.log(err);
@@ -53,12 +54,9 @@ export class ProductComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed! ', result, product);
       if(result) {
-        // delete product._id;
         product.stock = product.stock >= result ? product.stock - result : 0;
         this.api.updateProduct(product._id, product).subscribe(res => {
-          console.log(res);
           this.getAllProducts();
         }, err => {
           console.log(err);
@@ -66,6 +64,10 @@ export class ProductComponent implements OnInit {
         this.count = result;
       }
     });
+  }
+
+  onResize(event) {
+    this.breakpoint = (event.target.innerWidth <= 400) ? 1 : 4;
   }
 
 }
