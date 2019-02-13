@@ -2,35 +2,34 @@
   <mat-toolbar-row>
     <span>Magasin d'épicerie</span>
     <span class="example-spacer"></span>
-    <!--<mat-icon class="example-icon">verified_user</mat-icon>-->
     <button [routerLink]="['/stock']">
       Stock d'épicerie
     </button>
   </mat-toolbar-row>
 </mat-toolbar>
-<mat-grid-list [cols]="breakpoint" rowHeight="2:0.5" (window:resize)="onResize($event)">
-  <mat-grid-tile
-    *ngFor="let product of products"
-    [colspan]="1"
-    [rowspan]="4">
-    <mat-card class="example-card">
-      <mat-card-header>
-        <mat-card-title><span [matBadge]="product.stock" matBadgeOverlap="false" matBadgeColor="accent">{{product.name | titlecase}}</span></mat-card-title>
-        <mat-card-subtitle>{{product.grocer}}</mat-card-subtitle>
-      </mat-card-header>
-      <img *ngIf="product.name == 'banane'" class="img-full" src="assets/img/banane_57300.jpg" alt="Photo of a banana">
-      <img *ngIf="product.name == 'poire'" class="img-full" src="assets/img/poire.jpg" alt="Photo of a poire">
-      <img *ngIf="product.name == 'pomme'" class="img-full" src="assets/img/pomme_rouge.jpg" alt="Photo of a pomme">
-      <img *ngIf="product.name == 'orange'" class="img-full" src="assets/img/orange_1.jpg" alt="Photo of a orange">
-      <img *ngIf="product.name == 'fraise'" class="img-full" src="assets/img/fraise-fond-blanc.jpg" alt="Photo of a fraise">
-      <mat-card-content>
-        <p>
-          {{product.description}}
-        </p>
-      </mat-card-content>
-      <mat-card-actions align="end">
-        <button mat-button [disabled]="product.stock < 1" (click)="openDialog(product)">ACHETER</button>
-      </mat-card-actions>
-    </mat-card>
-  </mat-grid-tile>
-</mat-grid-list>
+<div class="container-fluid">
+  <div class="row">
+    <div class="card-columns">
+      <div class="card" *ngFor="let product of products">
+        <img *ngIf="product.name == 'banane'" src="assets/img/banane_57300.jpg"
+             class="card-img-top img-fluid img-thumbnail" alt="banane">
+        <img *ngIf="product.name == 'poire'" src="assets/img/poire.jpg" class="card-img-top img-fluid img-thumbnail"
+             alt="poire">
+        <img *ngIf="product.name == 'pomme'" src="assets/img/pomme_rouge.jpg"
+             class="card-img-top img-fluid img-thumbnail" alt="pomme">
+        <img *ngIf="product.name == 'orange'" src="assets/img/orange_1.jpg" class="card-img-top img-fluid img-thumbnail"
+             alt="orange">
+        <img *ngIf="product.name == 'fraise'" src="assets/img/fraise-fond-blanc.jpg"
+             class="card-img-top img-fluid img-thumbnail" alt="fraise">
+        <div class="card-body">
+          <h5 class="card-title">{{product.name | titlecase}} <span class="badge"
+                                                                    [class.badge-danger]="product.stock < 1"
+                                                                    [class.badge-success]="product.stock > 1">{{product.stock}} Kg en stock</span>
+          </h5>
+          <p class="card-text">{{product.description}}</p>
+          <a class="btn btn-primary" role="button" [class.disabled]="product.stock < 1" (click)="openDialog(product)">ACHETER</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
